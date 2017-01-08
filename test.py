@@ -59,7 +59,7 @@ def test_random(text):
     if x < 0.5:
         raise Exception("Fail")
     else:
-         return x1111111111111
+         return x
 #        print str(x) + " Success: ", text
  
 y = test_random("it works!")
