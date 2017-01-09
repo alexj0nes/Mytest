@@ -54,9 +54,9 @@ def retry(ExceptionToCheck, tries=4, delay=3, backoff=2, logger=None):
 import random
 
 @retry(Exception, tries=4)
-def test_random(text):
-    x = text + 1
-    x += 1 
+def test_random(var1,var2,var3):
+    x = var1 + var2
+    x += var3
     if x < 6:
         raise Exception("Fail")
     else:
@@ -66,8 +66,9 @@ def test_random(text):
 for i in range(10):
     print "trying: " + str(i)
     try:
-         y = test_random(i)
+         y = test_random(i,i,i)
     except:
          print "failed: " + str(i)
          continue
     print "success: " + str(i)
+    print "y: " + str(y)
