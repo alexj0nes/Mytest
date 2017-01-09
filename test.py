@@ -55,13 +55,19 @@ import random
 
 @retry(Exception, tries=4)
 def test_random(text):
-    x = random.random()
-    if x < 0.5:
+    x = text + 1
+    x += 1 
+    if x < 6:
         raise Exception("Fail")
     else:
          return x
 #        print str(x) + " Success: ", text
- 
-y = test_random("it works!")
 
-print y
+for i in range(10):
+    print "trying: " + str(i)
+    try:
+         y = test_random(i)
+    except:
+         print "failed: " + str(i)
+         continue
+    print "success: " + str(i)
